@@ -7,6 +7,9 @@ public class UtestData {
     public String strZip;
     public String strPassword;
     public String strWelcomeMessage;
+    public String strCity;
+    public String strCountry;
+    public String strLanguage;
 
     public String getStrName() {
         return strName;
@@ -48,11 +51,31 @@ public class UtestData {
         this.strPassword = strPassword;
     }
 
-    public String getStrWelcomeMessage() {
-        return strWelcomeMessage;
+    public String getStrWelcomeMessage() {return strWelcomeMessage;}
+
+    public void setStrWelcomeMessage(String strWelcomeMessage) {this.strWelcomeMessage = strWelcomeMessage;}
+
+    public String getStrCity() {
+        return strCity;
     }
 
-    public void setStrWelcomeMessage(String strWelcomeMessage) {
-        this.strWelcomeMessage = strWelcomeMessage;
+    public void setStrCity(String strCity) {
+        this.strCity = strCity;
+    }
+
+    public String getStrCountry() {
+        return strCountry;
+    }
+
+    public void setStrCountry(String strCountry) {
+        this.strCountry = strCountry;
+    }
+
+    public String getStrLanguage() {
+        return strLanguage;
+    }
+
+    public void setStrLanguage(String strLanguage) {
+        this.strLanguage = strLanguage;
     }
 }

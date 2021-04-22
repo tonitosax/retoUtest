@@ -6,8 +6,8 @@
   Scenario: Go to page Utest an login
     Given than Brandon wants to login in Utest page
     When he fill all the forms
-      |strName  |strLastName  |strEmail                |strZip        |strPassword   |
-      |Brandon  |Rogers       |brandonrogers@email.com |00000         |r39c7"UY4{    |
+      |strName  |strLastName  |strEmail                 |strZip  |strPassword   |strCity    |strCountry   |strLanguage |
+      |Brandon  |Rogers       |brandonrogers1@email.com |00000   |r39c7"UY4{    |Paris      |France       |Spanish     |
     Then He can view the Utest welcome page
     |strWelcomeMessage     |
-    |Begin uTest Academy   |
+    |Complete Setup        |

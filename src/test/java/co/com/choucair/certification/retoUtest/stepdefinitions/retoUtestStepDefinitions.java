@@ -10,7 +10,9 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.serenitybdd.screenplay.GivenWhenThen;
-import net.serenitybdd.screenplay.actors.OnStage;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
+import static net.serenitybdd.screenplay.actors.OnStage.setTheStage;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 
 import java.util.List;
@@ -19,22 +21,21 @@ public class retoUtestStepDefinitions {
 
     @Before
     public void setSage () {
-        OnStage.setTheStage(new OnlineCast());}
+        setTheStage(new OnlineCast());}
 
     @Given("^than Brandon wants to login in Utest page$")
     public void thanBrandonWantsToLoginInUtestPage() throws Exception {
-        OnStage.theActorCalled("Brandon").wasAbleTo(OpenUp.thePage(), JoinToday.onThePage());
+        theActorCalled("Brandon").wasAbleTo(OpenUp.thePage(), JoinToday.onThePage());
     }
 
     @When("^he fill all the forms$")
-    public void heFillAllTheForms(List<UtestData> UtestData) throws Exception {
-        OnStage.theActorInTheSpotlight().attemptsTo(Fill.theform(UtestData.get(0).getStrName(), UtestData.get(0).getStrLastName(),
-                UtestData.get(0).getStrEmail(), UtestData.get(0).getStrZip(), UtestData.get(0).getStrPassword()));
+    public void heFillAllTheForms(List<UtestData> utestData) throws Exception {
+      theActorInTheSpotlight().attemptsTo(Fill.theform(utestData));
     }
 
     @Then("^He can view the Utest welcome page$")
-    public void heCanViewTheUtestWelcomePage(List<UtestData> UtestData) throws Exception {
-        OnStage.theActorInTheSpotlight().should(GivenWhenThen.seeThat(Answer.toThe(UtestData.get(0).getStrWelcomeMessage())));
+    public void heCanViewTheUtestWelcomePage(List<UtestData> utestData) throws Exception {
+        theActorInTheSpotlight().should(GivenWhenThen.seeThat(Answer.toThe(utestData)));
     }
 
 }
